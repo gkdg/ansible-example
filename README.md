@@ -9,15 +9,15 @@
 # Run the project
 
 > From the terminal type:
-`make run`
+> `make run`
 
 > Above command also creates ip addresses for control node and servers. Replace ip address placeholders in ***host.ini*** file under the host group called ***containergroup*** by copying ip addresses from hosts.txt file.
 
->Exec into control_node container by typing:
-`docker exec -it control_node /bin/bash`
+> Exec into control_node container by typing:
+> `docker exec -it control_node /bin/bash`
 
->Inside the control_node container execute:
-`ansible-playbook ansible_playbook.yml`
+> Inside the control_node container execute:
+> `ansible-playbook ansible_playbook.yml`
 
 # How it works
 We create 4 containers inside the same network in order to simulate control node and server environment for ansible. 
