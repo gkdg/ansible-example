@@ -7,10 +7,10 @@
   tasks:
   - name: create a test file
     file:
-      path: "/test.txt"
+      path: "/ansible.txt"
       state: touch
     become: yes
   - name: create a file content
     copy:
       dest: "/test.txt"
-      content: "Hello hello madafakas!!!"
+      content: "Created by ansible!!!"
