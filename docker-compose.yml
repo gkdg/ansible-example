@@ -1,0 +1,48 @@
+version: "3.9"
+services:
+    master:
+        container_name: control_node
+        build:
+            dockerfile: Dockerfile
+            context: ./master-container
+        ports: 
+            - "2201:22"
+        tty: true
+        networks:
+            - snet
+        volumes: 
+            - "./host.ini:/etc/ansible/hosts"
+            - "./ansible_playbook.yml:/ansible_playbook.yml/"
+    s1:
+        container_name: server_1
+        build:
+            dockerfile: Dockerfile
+            context: ./server-containers
+        tty: true
+        ports: 
+            - "2202:22"
+        networks:
+            - snet
+    s2:
+        container_name: server_2
+        build:
+            dockerfile: Dockerfile
+            context: ./server-containers
+        tty: true
+        ports: 
+            - "2203:22"
+        networks:
+            - snet
+    s3:
+        container_name: server_3
+        build:
+            dockerfile: Dockerfile
+            context: ./server-containers
+        tty: true
+        ports: 
+            - "2204:22"
+        networks:
+            - snet
+networks: 
+    snet:
+    

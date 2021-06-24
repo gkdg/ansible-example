@@ -1,0 +1,16 @@
+---
+- name: sample book
+  hosts: [containergroup]
+  remote_user: sshuser
+  become: true
+
+  tasks:
+  - name: create a test file
+    file:
+      path: "/test.txt"
+      state: touch
+    become: yes
+  - name: create a file content
+    copy:
+      dest: "/test.txt"
+      content: "Hello hello madafakas!!!"
